@@ -22,3 +22,13 @@ hp-presentation {
   width: 80vmin;
   height: 80vmin;
 }
+
+hp-slide {
+  display: inline-block;
+  background-color: #0f0;
+
+  width: 80%;
+  height: 80%;
+
+  margin: 10%
+}
