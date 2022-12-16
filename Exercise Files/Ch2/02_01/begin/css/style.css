@@ -2,6 +2,7 @@
  * global site styles
  */
 
-#content {
+hp-content {
+  display: block;
   background-color: #f00;
 }
