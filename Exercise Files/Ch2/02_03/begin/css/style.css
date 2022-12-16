@@ -2,7 +2,8 @@
  * global site styles
  */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -13,4 +14,12 @@ hp-content {
 
   width: 100vw;
   height: 100vh;
+}
+
+hp-presentation {
+  display: block;
+  background-color: #fff;
+
+  width: 80vmin;
+  height: 80vmin;
 }
