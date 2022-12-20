@@ -166,6 +166,11 @@ hp-learn img {
   transition-duration: .5s;
 }
 
+hp-learn.match img {
+  margin-top: 5%;
+  margin-right: 14%;
+}
+
 hp-learn-no, hp-learn-yes {
   display: none;
 }
