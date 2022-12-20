@@ -1,23 +1,25 @@
-window.addEventListener('DOMContentLoaded', function (e) {
-  var presentation = document.querySelector('hp-presentation');
+window.addEventListener("DOMContentLoaded", function (e) {
+  var presentation = document.querySelector("hp-presentation");
 
   presentation.onclick = handlePresentationClick;
-  presentation.addEventListener('animationend', handleAnimationEnd, false);
+  presentation.addEventListener("animationend", handleAnimationEnd, false);
 });
 
 function handlePresentationClick(e) {
-  var current = document.querySelector('hp-slide.active');
+  var current = document.querySelector("hp-slide.active");
   var next = current.nextElementSibling;
 
   if (next) {
-    current.classList.remove('active');
-    next.classList.add('active');
+    current.classList.remove("active");
+    next.classList.add("active");
 
-    next.querySelectorAll('.match').forEach(function (el) {
-      setTimeout(function () { el.classList.remove('match'); }, 0);
+    next.querySelectorAll(".match").forEach(function (el) {
+      setTimeout(function () {
+        el.classList.remove("match");
+      }, 0);
     });
 
-    var aa = parseInt(next.getAttribute('data-autoadvance'));
+    var aa = parseInt(next.getAttribute("data-autoadvance"));
 
     if (!isNaN(aa)) {
       setTimeout(function (e) {
@@ -25,7 +27,7 @@ function handlePresentationClick(e) {
       }, aa);
     }
 
-    var osa = next.getAttribute('data-onshow');
+    var osa = next.getAttribute("data-onshow");
     if (osa) {
       window[osa]();
     }
@@ -33,30 +35,32 @@ function handlePresentationClick(e) {
 }
 
 function handleAnimationEnd(e) {
-  var slide = e.target.closest('hp-slide');
-  var aa = slide.getAttribute('data-autoadvance');
+  var slide = e.target.closest("hp-slide");
+  var aa = slide.getAttribute("data-autoadvance");
 
-  if (aa == 'animationend' && slide.classList.contains('active')) {
+  if (aa == "animationend" && slide.classList.contains("active")) {
     handlePresentationClick(e);
   }
 }
 
 function setLearnImage(imageName) {
-  var img = document.querySelector('hp-slide.active hp-learn img');
+  var img = document.querySelector("hp-slide.active hp-learn img");
 
-  img.src = 'images/' + imageName + '.svg';
+  if (img) {
+    img.src = "images/" + imageName + ".svg";
+  }
 }
 
-var shapes = ['circle', 'diamond', 'square', 'triangle'];
+var shapes = ["circle", "diamond", "square", "triangle"];
 
 function showLearning() {
   var ii = Math.floor(Math.random() * shapes.length);
   setLearnImage(shapes[ii]);
 
-  var slide = document.querySelector('hp-slide.active');
-  slide.classList.remove('learn-yes');
-  slide.classList.remove('learn-no');
-  slide.classList.add(ii ? 'learn-no' : 'learn-yes');
+  var slide = document.querySelector("hp-slide.active");
+  slide.classList.remove("learn-yes");
+  slide.classList.remove("learn-no");
+  slide.classList.add(ii ? "learn-no" : "learn-yes");
 }
 
 function startLearning(learningDelay) {
@@ -66,7 +70,7 @@ function startLearning(learningDelay) {
     if (learningDelay > 1.1) {
       showLearning();
 
-      learningDelay = Math.pow(learningDelay, 1/1.05);
+      learningDelay = Math.pow(learningDelay, 1 / 1.05);
       startLearning(learningDelay);
     }
   }, learningDelay);
@@ -77,9 +81,9 @@ function runLearningSequence() {
 }
 
 function animateSVGStep() {
-  var slide = document.querySelector('hp-slide.active');
+  var slide = document.querySelector("hp-slide.active");
 
-  var svgs = slide.querySelectorAll('svg');
+  var svgs = slide.querySelectorAll("svg");
 
   if (svgs[0].children.length > 0) {
     var el = svgs[0].children[0];
