@@ -2,7 +2,8 @@
  * global site styles
  */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -17,11 +18,11 @@ hp-content {
   align-items: center;
 }
 
-hp-presentation>hp-slide {
+hp-presentation > hp-slide {
   display: none;
 }
 
-hp-presentation>hp-slide.active {
+hp-presentation > hp-slide.active {
   display: inline-block;
 }
 
@@ -32,7 +33,7 @@ hp-presentation {
   width: 80vmin;
   height: 80vmin;
 
-  border: .2em solid #000;
+  border: 0.2em solid #000;
   border-radius: 1em;
 }
 
@@ -67,10 +68,11 @@ hp-chooser * {
   margin: 5% 2.5%;
 }
 
-hp-chooser.chosen>*.chosen {
+hp-chooser.chosen > *.chosen {
   max-width: 30%;
   animation-name: chosen;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
 }
 
 @keyframes chosen {
@@ -83,18 +85,22 @@ hp-chooser.chosen>*.chosen {
   }
 }
 
-hp-chooser.chosen>*:not(.chosen) {
+hp-chooser.chosen > *:not(.chosen) {
   max-width: 16.6%;
   animation-name: unchosen;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
+  opacity: 0.25;
+  animation-timing-function: linear;
 }
 
 @keyframes unchosen {
   from {
     max-width: 20%;
+    opacity: 1;
   }
 
   to {
     max-width: 16.6%;
+    opacity: 0.25;
   }
 }

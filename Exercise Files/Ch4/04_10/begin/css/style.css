@@ -2,7 +2,8 @@
  * global site styles
  */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -17,11 +18,11 @@ hp-content {
   align-items: center;
 }
 
-hp-presentation>hp-slide {
+hp-presentation > hp-slide {
   display: none;
 }
 
-hp-presentation>hp-slide.active {
+hp-presentation > hp-slide.active {
   display: inline-block;
 }
 
@@ -32,7 +33,7 @@ hp-presentation {
   width: 80vmin;
   height: 80vmin;
 
-  border: .2em solid #000;
+  border: 0.2em solid #000;
   border-radius: 1em;
 }
 
@@ -71,14 +72,14 @@ hp-chooser * {
   margin: 5% 2.5%;
 }
 
-hp-chooser.chosen>*.chosen {
+hp-chooser.chosen > *.chosen {
   max-width: 30%;
 }
 
-hp-chooser.fixed>*.chosen {
+hp-chooser.fixed > *.chosen {
   max-width: 50%;
   animation-name: chosen_fixed;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 @keyframes chosen_fixed {
@@ -91,9 +92,9 @@ hp-chooser.fixed>*.chosen {
   }
 }
 
-hp-chooser.chosen.animate>*.chosen {
+hp-chooser.chosen.animate > *.chosen {
   animation-name: chosen;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-timing-function: ease;
 }
 
@@ -107,17 +108,17 @@ hp-chooser.chosen.animate>*.chosen {
   }
 }
 
-hp-chooser.chosen>*:not(.chosen) {
+hp-chooser.chosen > *:not(.chosen) {
   max-width: 16.6%;
-  opacity: .25;
+  opacity: 0.25;
 }
 
-hp-chooser.fixed>*:not(.chosen) {
+hp-chooser.fixed > *:not(.chosen) {
   max-width: 0%;
-  opacity: .25;
+  opacity: 0.25;
 
   animation-name: unchosen_fixed;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 @keyframes unchosen_fixed {
@@ -129,21 +130,21 @@ hp-chooser.fixed>*:not(.chosen) {
   }
 }
 
-hp-chooser.chosen.animate>*:not(.chosen) {
+hp-chooser.chosen.animate > *:not(.chosen) {
   animation-name: unchosen;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-timing-function: linear;
 }
 
 @keyframes unchosen {
   from {
     max-width: 20%;
-    opacity: 1.0;
+    opacity: 1;
   }
 
   to {
     max-width: 16.6%;
-    opacity: .25;
+    opacity: 0.25;
   }
 }
 
@@ -156,14 +157,15 @@ hp-learn {
   justify-content: space-around;
 }
 
-hp-learn hp-learn-no, hp-learn hp-learn-yes {
+hp-learn hp-learn-no,
+hp-learn hp-learn-yes {
   max-width: 20%;
 }
 
 hp-learn img {
   max-width: 50%;
   transition-property: margin;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
 hp-learn.match img {
@@ -171,6 +173,22 @@ hp-learn.match img {
   margin-right: 14%;
 }
 
-hp-learn-no, hp-learn-yes {
+hp-learn-no,
+hp-learn-yes {
   display: none;
+}
+
+#tfo {
+  opacity: 0;
+  animation-name: tfo;
+  animation-duration: 2s;
+}
+
+@keyframes tfo {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

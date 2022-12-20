@@ -2,7 +2,8 @@
  * global site styles
  */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -17,11 +18,11 @@ hp-content {
   align-items: center;
 }
 
-hp-presentation>hp-slide {
+hp-presentation > hp-slide {
   display: none;
 }
 
-hp-presentation>hp-slide.active {
+hp-presentation > hp-slide.active {
   display: inline-block;
 }
 
@@ -32,7 +33,7 @@ hp-presentation {
   width: 80vmin;
   height: 80vmin;
 
-  border: .2em solid #000;
+  border: 0.2em solid #000;
   border-radius: 1em;
 }
 
@@ -64,4 +65,12 @@ hp-chooser * {
   max-width: 20%;
 
   margin: 5% 2.5%;
+}
+
+hp-chooser.chosen > *.chosen {
+  max-width: 30%;
+}
+
+hp-chooser.chosen > *:not(.chosen) {
+  max-width: 16.6%;
 }
